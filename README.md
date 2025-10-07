@@ -1,19 +1,92 @@
-# 1
-
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>جدول محمد الخزيم</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- CSS مدمج -->
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", "Tahoma", "Arial", sans-serif;
+      background: #ffffff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      direction: rtl;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 28px auto;
+      padding: 22px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      margin: 0 0 6px 0;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      color: #555;
+      margin: 0 0 18px 0;
+      font-size: 15px;
+    }
+
+    .section {
+      margin: 18px 0;
+      padding: 12px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .section:first-of-type {
+      border-top: 0;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .grid {
+      display: block;
+      line-height: 1.9;
+      white-space: pre-wrap;
+      font-size: 15px;
+    }
+
+    .current {
+      margin-top: 14px;
+      padding: 12px;
+      background: #f7f7f7;
+      border-radius: 6px;
+      border: 1px solid #eee;
+      font-size: 15px;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .wrap { padding: 14px; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+
+  <!-- JS مدمج (فارغ حاليا) -->
+  <script>
+    // main.js - فارغ كما في الموقع الأصلي
+    // يمكنك إضافة أي كود لاحقًا لتفعيل ميزات مثل اليوم الحالي أو الساعة
+  </script>
 </head>
 <body>
   <div class="wrap">
     <h1>جدول محمد الخزيم</h1>
     <div class="subtitle">تخصص: برمجة وتطوير الويب</div>
-
-   <div class="section">
+    <div class="section">
       <h2>📘 الجدول الكامل</h2>
       <div class="grid">
 اليوم المادة الوقت المدرس المبنى والغرفة
@@ -80,74 +153,3 @@
   </div>
 </body>
 </html>
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", "Tahoma", "Arial", sans-serif;
-  background: #ffffff;
-  color: #111;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  direction: rtl;
-}
-
-.wrap {
-  max-width: 900px;
-  margin: 28px auto;
-  padding: 22px;
-  box-sizing: border-box;
-}
-
-h1 {
-  margin: 0 0 6px 0;
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.subtitle {
-  color: #555;
-  margin: 0 0 18px 0;
-  font-size: 15px;
-}
-
-.section {
-  margin: 18px 0;
-  padding: 12px 0;
-  border-top: 1px solid #eee;
-}
-
-.section:first-of-type {
-  border-top: 0;
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.grid {
-  display: block;
-  line-height: 1.9;
-  white-space: pre-wrap;
-  font-size: 15px;
-}
-
-.current {
-  margin-top: 14px;
-  padding: 12px;
-  background: #f7f7f7;
-  border-radius: 6px;
-  border: 1px solid #eee;
-  font-size: 15px;
-}
-
-strong {
-  font-weight: 600;
-}
-
-@media (max-width: 600px) {
-  .wrap {
-    padding: 14px;
-  }
-  h1 {
-    font-size: 22px;
-  }
-}
