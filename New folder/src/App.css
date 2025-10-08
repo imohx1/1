@@ -1,0 +1,741 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for the schedule app */
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: white;
+  padding: 2rem 1rem;
+  direction: rtl;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #94a3b8;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.schedule-section {
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  background: #ffffff; /* الجدول باللون الأبيض */
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.4rem; /* تصغير حجم الخط الافتراضي للجدول بشكل أكبر */
+  color: #333; /* لون النص الافتراضي للجدول */
+}
+
+.schedule-table thead {
+  background: #f0f0f0; /* رأس الجدول بلون فاتح */
+}
+
+.schedule-table th {
+  padding: 0.3rem; /* تقليل المسافات الداخلية لرأس الجدول */
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.45rem; /* تصغير حجم خط رأس الجدول */
+  border-bottom: 2px solid #ddd;
+  white-space: nowrap;
+  color: #333;
+}
+
+.schedule-table td {
+  padding: 0.3rem; /* تقليل المسافات الداخلية للخلايا */
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  font-size: 0.4rem; /* تصغير حجم خط الخلايا */
+  vertical-align: middle;
+  color: #333;
+}
+
+.schedule-table tbody tr {
+  background: #ffffff;
+  transition: background 0.2s;
+}
+
+.schedule-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+/* صفوف الأحد، الثلاثاء، الخميس باللون الرمادي الفاتح */
+.schedule-table tbody tr.sunday-row,
+.schedule-table tbody tr.tuesday-row,
+.schedule-table tbody tr.thursday-row {
+  background: #f0f0f0; /* رمادي فاتح للخلفية */
+  color: #333333; /* نص رمادي غامق ليتناسب مع الخلفية الفاتحة */
+}
+
+.schedule-table tbody tr.sunday-row .location-icon,
+.schedule-table tbody tr.tuesday-row .location-icon,
+.schedule-table tbody tr.thursday-row .location-icon {
+  color: #666666;
+}
+
+
+
+.schedule-table tbody tr.cancelled-row {
+  background: rgba(255, 99, 71, 0.15); /* أحمر طماطم خافت */
+  color: #ff6347; /* لون نص أحمر طماطم */
+}
+
+.schedule-table tbody tr.cancelled-row .location-icon {
+  color: #ff6347;
+}
+
+.schedule-table tbody tr.cancelled-row:hover {
+  background: rgba(220, 38, 38, 0.25);
+}
+
+.day-cell {
+  font-weight: 600;
+  font-size: 0.45rem; /* تصغير حجم خط خلية اليوم */
+  background: #f0f0f0; /* لون خلفية خلية اليوم الافتراضي */
+  border-left: 3px solid #ccc;
+  color: #333;
+}
+
+.subject-cell {
+  text-align: right;
+  padding-right: 0.5rem; /* تقليل المسافة */
+}
+
+.subject-name {
+  font-weight: 500;
+  font-size: 0.4rem; /* تصغير حجم خط اسم المادة */
+}
+
+.subject-note {
+  font-size: 0.3rem; /* تصغير حجم خط الملاحظة */
+  color: #666;
+  margin-top: 0.05rem;
+}
+
+.time-cell {
+  white-space: nowrap;
+  font-size: 0.3rem; /* تصغير حجم خط الوقت بشكل كبير */
+}
+
+.teacher-cell {
+  font-size: 0.35rem; /* تصغير حجم خط المدرس بشكل كبير */
+}
+
+.building-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.05rem;
+  font-size: 0.25rem; /* تصغير حجم خط المبنى والغرفة بشكل كبير جداً */
+}
+
+.location-icon {
+  flex-shrink: 0;
+  color: #666;
+  size: 7px; /* تصغير حجم الأيقونة */
+}
+
+.next-class-section {
+  display: flex;
+  justify-content: center;
+}
+
+.next-class-card {
+  background: white;
+  color: #1e293b;
+  border-radius: 1.5rem;
+  padding: 1.5rem; /* زيادة المسافة الداخلية للبطاقة */
+  max-width: 350px; /* زيادة أقصى عرض للبطاقة بشكل كبير */
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #dc2626;
+}
+
+.alarm-icon {
+  font-size: 1.5rem;
+}
+
+.card-header h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.card-body {
+  margin-bottom: 1rem;
+}
+
+.next-class-subject {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.next-class-time {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: #475569;
+}
+
+.next-class-teacher {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: #475569;
+}
+
+.next-class-location {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: #475569;
+}
+
+.next-class-day {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.card-footer {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.navigation-buttons button {
+  background: none;
+  border: none;
+  color: #1e293b;
+  cursor: pointer;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.navigation-buttons button:hover:not(:disabled) {
+  color: #dc2626;
+}
+
+.navigation-buttons button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.current-time {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-align: center;
+  color: #1e293b;
+}
+
+.last-update {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  .schedule-section {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .schedule-table {
+    font-size: 0.4rem; /* تصغير حجم الخط للجدول على الجوال بشكل أكبر */
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 0.2rem 0.1rem; /* تقليل المسافات الداخلية للخلايا على الجوال بشكل أكبر */
+  }
+
+  .day-cell {
+    font-size: 0.45rem;
+  }
+
+  .subject-name {
+    font-size: 0.45rem;
+  }
+
+  .subject-note {
+    font-size: 0.35rem;
+  }
+
+  .time-cell,
+  .teacher-cell,
+  .building-cell {
+    font-size: 0.4rem;
+  }
+
+  .location-icon {
+    size: 7px;
+  }
+
+  .next-class-card {
+    padding: 1rem;
+    max-width: 280px;
+  }
+
+  .card-header h2 {
+    font-size: 0.9rem;
+  }
+
+  .next-class-subject {
+    font-size: 1.2rem;
+  }
+
+  .next-class-time,
+  .next-class-teacher,
+  .next-class-location {
+    font-size: 0.7rem;
+  }
+
+  .next-class-day {
+    font-size: 0.6rem;
+  }
+
+  .current-time {
+    font-size: 1.5rem;
+  }
+
+  .last-update {
+    font-size: 0.6rem;
+  }
+}
+
+.filter-container {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.day-filter-input {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  width: 100%;
+  max-width: 200px;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+}
+
+.day-filter-input::placeholder {
+  color: #999;
+}
+
+.day-filter-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.25);
+}
+
+
+
+.next-class-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.next-class-card.main-card {
+  flex: 1 1 400px; /* Make main card larger */
+  max-width: 450px;
+  padding: 2rem; /* Increase padding */
+}
+
+
+
+.next-class-card.secondary-card {
+  flex: 0 1 200px; /* Smaller fixed size for secondary cards */
+  max-width: 200px;
+  padding: 0.75rem;
+  font-size: 0.7rem;
+  opacity: 0.7; /* Make them slightly faded */
+  transform: scale(0.9); /* Slightly smaller visually */
+  transition: all 0.3s ease-in-out;
+}
+
+.secondary-card .card-header h2 {
+  font-size: 0.9rem;
+}
+
+.secondary-card .next-class-subject {
+  font-size: 1rem;
+}
+
+.secondary-card .next-class-time,
+.secondary-card .next-class-teacher,
+.secondary-card .next-class-location,
+.secondary-card .next-class-day {
+  font-size: 0.6rem;
+}
+
+.secondary-card .navigation-buttons button svg {
+  size: 14px;
+}
+
+.secondary-card .card-header h2 {
+  font-size: 1rem;
+}
+
+.secondary-card .next-class-subject {
+  font-size: 1.1rem;
+}
+
+.secondary-card .next-class-time,
+.secondary-card .next-class-teacher,
+.secondary-card .next-class-location,
+.secondary-card .next-class-day {
+  font-size: 0.7rem;
+}
+
+.secondary-card .navigation-buttons button svg {
+  size: 16px;
+}
+
+@media (max-width: 768px) {
+  .next-class-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .next-class-card.main-card,
+  .next-class-card.secondary-card {
+    max-width: 90%; /* Adjust max-width for smaller screens */
+  }
+}
+
+
+
+.class-search-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.class-search-input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  width: 150px;
+  text-align: center;
+}
+
+.class-search-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.class-search-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.next-class-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  gap: 1rem;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.side-panel {
+  background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+  color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  flex: 0 1 250px; /* Smaller fixed size for side panels */
+  max-width: 250px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure panels take full height */
+}
+
+.side-panel .panel-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.side-panel .panel-body {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable scrolling for content */
+  padding-right: 0.5rem; /* Space for scrollbar */
+}
+
+.side-panel-class-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.side-panel-class-item h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: #e2e8f0;
+}
+
+.side-panel-class-item p {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  margin-bottom: 0.1rem;
+}
+
+.next-class-card.main-card {
+  flex: 1 1 400px; /* Make main card larger */
+  max-width: 450px;
+  padding: 2rem; /* Increase padding */
+  background: white;
+  color: #1e293b;
+  border-radius: 1.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .next-class-cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .side-panel,
+  .next-class-card.main-card {
+    max-width: 90%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .side-panel {
+    padding: 0.75rem;
+  }
+
+  .side-panel .panel-header h2 {
+    font-size: 1rem;
+  }
+
+  .side-panel-class-item {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .side-panel-class-item h3 {
+    font-size: 0.8rem;
+  }
+
+  .side-panel-class-item p {
+    font-size: 0.65rem;
+  }
+
+  .next-class-card.main-card {
+    padding: 1.5rem;
+  }
+}
+
